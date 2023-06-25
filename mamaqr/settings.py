@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -144,7 +147,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-
  ]
 
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
@@ -154,4 +156,28 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT =os.path.join(BASE_DIR,'media')
 
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+SITE_ID = 1
+
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+CART_SESSION_ID = 'cart'
+
+
+
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'

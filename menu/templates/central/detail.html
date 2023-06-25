@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block seo %}
+
+
+<title>Ürünler</title>
+
+<meta name="description" content="?" />
+
+<meta name="keywords" content="?" />
+
+<link rel="canonical" href="?"/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="breadcrumbs_aree breadcrumbs_bg mb-100" data-bgimg="{% static 'bg.webp' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumbs_text">
+                        <h1>{{product.name}}</h1>
+                        <ul>
+                            <li><a href="/">Ana Sayfa </a></li>
+                            <li> // Kategoriler</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <div class="single_product_section mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 pb-4 pb-md-0">
+                    <div class="single-img">
+                        <img class="img-full" src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="Product Image">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product_details_sidebar with-sticky">
+                        <h2 class="product__title">{{product.name}}</h2>
+                        <div class="price_box">
+                            <span class="current_price">TL {{product.price}}</span>
+                        </div>
+                        <div class="quickview__info">
+                            <p class="product_review d-flex align-items-center">
+                                <span class="review_icon d-flex">
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                    <i class="ion-ios-star"></i>
+                                </span>
+                                <span class="review__text"> (5 reviews)</span>
+                            </p>
+                        </div>
+                        <p class="product_details_desc">{{product.info | safe}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_tab_section mb-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product_tab_navigation">
+                        <ul class="nav justify-content-center">
+                            <li>
+                                <a class="active" data-bs-toggle="tab" href="#description"
+                                    aria-controls="description">Description</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product_page_content_inner tab-content">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel">
+                            <div class="product_tab_desc">
+                                <p>{{product.full_info | safe}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

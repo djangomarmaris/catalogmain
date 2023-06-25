@@ -31,7 +31,10 @@ urlpatterns = [
 ]
 urlpatterns += i18n_patterns (
     path('', views.index, name='index'),
+    path('<int:id>/<str:slug>/', views.product_detail, name = 'product_detail'),
     path('<str:category_slug>/', views.show, name='show_category'),
+
+
 )
 urlpatterns  += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
